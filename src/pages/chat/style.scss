@@ -16,6 +16,25 @@
 .chat-sidebar__profile-link {
     color: white;
     text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    position: relative;
+    margin-bottom: 1rem;
+    padding-left: 17px;
+    &::before {
+        content: '';
+        width: 20px;
+        height: 20px;
+        background-image: url("/static/expand-arrow.svg");
+        background-position: 0% 0%;
+        background-repeat: no-repeat;
+        background-size: 50% 50%;
+        position: absolute;
+        top: 0;
+        left: 5;
+    }
+
+
 }
 
 .chat-sidebar__message-search {
@@ -69,6 +88,10 @@
     margin-left: auto;
     color: white;
     width: 2rem;
+    height: 17px;
+    background-image: url("/static/vertical-dots.svg");
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 
@@ -117,4 +140,13 @@
     border-radius: 40px;
     color: white;
     margin-left: 10px;
+    background-image: url("/static/send.svg");
+    background-size: 50% 50%;
+    background-position: 44% 50%;
+    background-repeat: no-repeat;
+}
+.chat-lent__messages-input-container__attach-btn {
+    background-image: url("/static/attach.svg");
+    height: 32px;
+    width: 32px;
 }
