@@ -1,8 +1,8 @@
 import Handlebars from 'handlebars';
 import tpl from 'bundle-text:./tpl.hbs';
 import './style.scss';
-import sidebarDialogue from '../../components/sidebar-dialogue/'
-import messageTemplate from "../../components/message-template/"
+import sidebarDialogue from '../../components/sidebar-dialogue/';
+import messageTemplate from "../../components/message-template/";
 
 export default (props = {}) => {
     const messages = [

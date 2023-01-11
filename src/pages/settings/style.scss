@@ -26,10 +26,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    svg {
-        fill: white;
-        transform: translateY(1px);
-    }
+    background-image: url("/static/arrow-left.svg");
+    background-size: 60% 60%;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 .settings__avatar {
     height: 100px;
