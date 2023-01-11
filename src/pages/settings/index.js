@@ -6,37 +6,38 @@ import createSettingsActions from "../../components/settings-actions/"
 import createSettingsUserInfo from "../../components/settings-user-info/"
 import createChangePasswordForm from "../../components/password-change/"
 import btn from "../../components/button/"
+import { user } from '../../mockData';
 
 const renderData = [
     {
         id: 'first_name',
         label: 'Имя',
-        value: 'Иваныч'
+        value: user.first_name
     },
     {
         id: 'second_name',
         label: 'Фамилия',
-        value: 'Иваныч'
+        value: user.second_name
     },
     {
         id: 'display_name',
         label: 'Имя в чате',
-        value: 'Иваныч'
+        value: user.display_name
     },
     {
         id: 'login',
         label: 'Логин',
-        value: 'Иваныч'
+        value: user.login
     },
     {
         id: 'email',
         label: 'Почта',
-        value: 'Иваныч'
+        value: user.email
     },
     {
         id: 'phone',
         label: 'Телефон',
-        value: 'Иваныч'
+        value: user.phone
     }
 ]
 const userInfo = createSettingsUserInfo({renderData})
@@ -44,6 +45,8 @@ const settingsActions = createSettingsActions({});
 const changePasswordForm = createChangePasswordForm({})
 const saveAvatarBtn = btn('Поменять', "saveAvatar()")
 
+//temporal placeholder functions until the second sprint
+//defined as window methods for easier temporal linking w/ handlebar tpls
 window.changeUserInfo = function() {
     document.querySelector('.settings__actions-container').innerHTML = btn('Сохранить', "saveUserInfo()");
     document.querySelectorAll('.settings__field__input').forEach(element => {
@@ -72,10 +75,6 @@ window.changeAvatar = function() {
 window.saveAvatar = function() {
     document.querySelector('.settings__change-avatar-menu-container').style.display = 'none';
 }
-window.logOut = function() {
-    alert('вы вышли из аккаунта');
-}
-
 
 export default (props = {}) => {
 	return Handlebars.compile(tpl)({userInfo: userInfo,

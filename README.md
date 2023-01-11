@@ -1,4 +1,4 @@
-## Practicum frontend: sprint_1 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/tzhovtyi/middle.messenger.praktikum.yandex/tests.yml) [![Netlify Status](https://api.netlify.com/api/v1/badges/d9eb756c-9169-45dc-890e-4f53abab2631/deploy-status)](https://app.netlify.com/sites/capable-heliotrope-a7b70a/deploys)
+## Practicum Yandex: sprint_1 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/tzhovtyi/middle.messenger.praktikum.yandex/tests.yml) [![Netlify Status](https://api.netlify.com/api/v1/badges/d9eb756c-9169-45dc-890e-4f53abab2631/deploy-status)](https://app.netlify.com/sites/practicum-chat-app/deploys)
 
 Description: Web chat messenger.
 

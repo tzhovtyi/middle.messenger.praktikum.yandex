@@ -5,13 +5,6 @@ import createSettingsPage from "./pages/settings/"
 import createChatPage from "./pages/chat/"
 import createErrorPage from "./pages/error/"
 
-
-// Handlebars.registerHelper('stringifyFunc', function(fn) {
-//     return new Handlebars.SafeString("(" + 
-//                fn.toString().replace(/\"/g,"'") + ")()");
-// });
-
-
 const registration = createRegistrationPage({});
 const settings = createSettingsPage({});
 const login = createLogInPage({});
@@ -19,28 +12,19 @@ const chat = createChatPage({})
 const error404 = createErrorPage({errorNumber: '404', errorText: 'Не туда попали'});
 const error500 = createErrorPage({errorNumber: '500', errorText: 'Мы уже фиксим'});
 
-
 const routes = [
-    { path: '/', component: login },
-    { path: '/registration', component: registration },
-    { path: '/settings', component: settings },
-    { path: '/chat', component: chat },
-    { path: '/404', component: error404 },
-    { path: '/500', component: error500 }
+    { path: '/', page: login },
+    { path: '/registration', page: registration },
+    { path: '/settings', page: settings },
+    { path: '/chat', page: chat },
+    { path: '/404', page: error404 },
+    { path: '/500', page: error500 }
   ];
 
-const parseLocation = () => location.hash.slice(1).toLowerCase() || '';
-const findComponentByPath = (path, routes) => routes.find(r => r.path === `/${path}`);
-
-
 const router = () => {
-    const path = parseLocation();
-    console.log(path)
-    const {component} = findComponentByPath(path, routes) || {component: error404}
-    // const res = comp({
-    //     page: component,
-    // })
-    document.getElementById('root').innerHTML = component;
+    const path = location.hash.slice(1).toLowerCase() || '';
+    const {page} = routes.find(r => r.path === `/${path}`) || {page: error404}
+    document.getElementById('root').innerHTML = page;
   };
 
 window.addEventListener('hashchange', router);
