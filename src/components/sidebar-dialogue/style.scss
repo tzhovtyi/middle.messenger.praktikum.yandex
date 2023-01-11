@@ -5,8 +5,12 @@
     position: relative;
     border-top: solid white 1px;
     display: flex;
+    cursor: pointer;
     &:last-of-type{
         border-bottom: solid white 1px;
+    }
+    &:hover {
+        background: rgba(255, 255, 255, 0.08);
     }
 }
 .sidebar-dialogue__avatar {
