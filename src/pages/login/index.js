@@ -7,7 +7,7 @@ import btn from "../../components/button/"
 const logInBtn = btn('Войти', 'logIn()')
  window.logIn = function() {
     //temporal mock func for tests
-    location.hash = "settings";
+    location.hash = "chat";
 }
 export default (props = {}) => {
 	return Handlebars.compile(tpl)({logInBtn: logInBtn});

@@ -1,9 +1,9 @@
 import './style.scss';
-import createLogInPage from "./pages/login/"
-import createRegistrationPage from "./pages/registration/"
-import createSettingsPage from "./pages/settings/"
-import createChatPage from "./pages/chat/"
-import createErrorPage from "./pages/error/"
+import createLogInPage from "./pages/login/";
+import createRegistrationPage from "./pages/registration/";
+import createSettingsPage from "./pages/settings/";
+import createChatPage from "./pages/chat/";
+import createErrorPage from "./pages/error/";
 
 const registration = createRegistrationPage({});
 const settings = createSettingsPage({});

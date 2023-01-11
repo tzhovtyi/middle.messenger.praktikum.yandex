@@ -21,23 +21,19 @@
     margin-top: auto;
     margin-bottom: auto;
 }
-
 .sidebar-dialogue__message {
     height: 100%;
     width: calc(80% - 40px);
     display: flex;
     flex-direction: column;
-    // background: blue;
     margin-left: 10px;
     gap: 5px;
 }
-
 .sidebar-dialogue__message__sender {
     font-weight: 600;
     font-size: 13px;
     line-height: 13px;
 }
-
 .sidebar-dialogue__message__content {
     display: block;
     height: 60px;
@@ -54,7 +50,6 @@
 .sidebar-dialogue__info {
     position: absolute;
 }
-
 .sidebar-dialogue__timestamp {
     top: 5px;
     right: 5px;
