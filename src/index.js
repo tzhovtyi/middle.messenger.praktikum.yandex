@@ -1,9 +1,9 @@
 import './style.scss';
-import createLogInPage from "./pages/login/"
-import createRegistrationPage from "./pages/registration/"
-import createSettingsPage from "./pages/settings/"
-import createChatPage from "./pages/chat/"
-import createErrorPage from "./pages/error/"
+import createLogInPage from "./pages/login/";
+import createRegistrationPage from "./pages/registration/";
+import createSettingsPage from "./pages/settings/";
+import createChatPage from "./pages/chat/";
+import createErrorPage from "./pages/error/";
 
 const registration = createRegistrationPage({});
 const settings = createSettingsPage({});
@@ -23,7 +23,7 @@ const routes = [
 
 const router = () => {
     const path = location.hash.slice(1).toLowerCase() || '';
-    const {page} = routes.find(r => r.path === `/${path}`) || {page: error404}
+    const {page} = routes.find(r => r.path === `/${path}`) || {page: error404};
     document.getElementById('root').innerHTML = page;
   };
 

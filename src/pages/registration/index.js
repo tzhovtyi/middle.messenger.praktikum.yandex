@@ -2,7 +2,7 @@ import Handlebars from 'handlebars';
 import tpl from 'bundle-text:./tpl.hbs';
 import './style.scss';
 import inputField from '../../components/input_field';
-import btn from "../../components/button/"
+import btn from "../../components/button/";
 
 export default (props = {}) => {
     const fieldsRenderData = [
@@ -38,11 +38,7 @@ export default (props = {}) => {
         }    
     ];
 
-    window.singUp = function() {
-        alert('new user registered');
-    }
-    const singUpBtn = btn('Зарегистрироваться', 'singUp()')
+    const singUpBtn = btn('Зарегистрироваться', '');
 
-    
 	return Handlebars.compile(tpl)({fieldsRenderData: fieldsRenderData, singUpBtn: singUpBtn});
 }

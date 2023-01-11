@@ -3,7 +3,6 @@
     height: 100vh;
     display: flex;
 }
-
 .chat-sidebar {
     width: 22%;
     height: 100%;
@@ -33,10 +32,7 @@
         top: 0;
         left: 5;
     }
-
-
 }
-
 .chat-sidebar__message-search {
     position: relative;
     margin-bottom: 1.5rem;
@@ -93,8 +89,6 @@
     background-position: center;
     background-repeat: no-repeat;
 }
-
-
 .chat-lent__messages-container {
     width: 100%;
     height: calc(100% - 6rem);
@@ -108,8 +102,6 @@
         display: none;
     }
 }
-
-
 .chat-lent__messages-input-container {
     width: 100%;
     min-height: 3rem;
@@ -132,7 +124,6 @@
     height: 30px;
     margin-left: 5px;
 }
-
 .chat-lent__messages-input-container__send-btn {
     background: #0548F3;
     height: 35px;
