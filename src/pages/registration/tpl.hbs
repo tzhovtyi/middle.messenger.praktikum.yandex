@@ -1,0 +1,10 @@
+<main class="registration">
+    <div class="registration-form"> 
+        <h4 class="registration-form__title">Регистрация</h4>
+        {{#each fieldsRenderData}}
+        {{>inputField label = label id = id}}
+        {{/each}}
+        {{{singUpBtn}}}
+        <a href="/" class='return-link'>Войти</a>
+    </div>
+</main>

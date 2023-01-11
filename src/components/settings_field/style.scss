@@ -1,0 +1,19 @@
+
+.settings__field {
+    border-bottom: solid white 1px;
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+.settings__field__input {
+    width: fit-content;
+    text-align: right;
+    color: #999999;
+    font-weight: 500;
+    font-size: 13px;
+}
+
+.settings__field__input_active {
+    color: white;
+}
