@@ -40,10 +40,10 @@ const renderData = [
         value: user.phone
     }
 ]
-const userInfo = createSettingsUserInfo({renderData})
+const userInfo = createSettingsUserInfo({renderData});
 const settingsActions = createSettingsActions({});
-const changePasswordForm = createChangePasswordForm({})
-const saveAvatarBtn = btn('Поменять', "saveAvatar()")
+const changePasswordForm = createChangePasswordForm({});
+const saveAvatarBtn = btn('Поменять', "saveAvatar()");
 
 //temporal placeholder functions until the second sprint
 //defined as window methods for easier temporal linking w/ handlebar tpls
@@ -57,7 +57,7 @@ window.changeUserInfo = function() {
 window.saveUserInfo = function() {
     document.querySelector('.settings__actions-container').innerHTML = settingsActions;
     document.querySelectorAll('.settings__field__input').forEach(element => {
-        element.setAttribute('disabled', '')
+        element.setAttribute('disabled', '');
         element.classList.remove('settings__field__input_active');
     })
 }

@@ -23,7 +23,7 @@ const routes = [
 
 const router = () => {
     const path = location.hash.slice(1).toLowerCase() || '';
-    const {page} = routes.find(r => r.path === `/${path}`) || {page: error404}
+    const {page} = routes.find(r => r.path === `/${path}`) || {page: error404};
     document.getElementById('root').innerHTML = page;
   };
 
