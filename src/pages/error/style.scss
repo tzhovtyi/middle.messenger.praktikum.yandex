@@ -1,3 +1,4 @@
+@import '../../variables';
 .error {
     width: 100vw;
     height: 100vh;
@@ -9,13 +10,13 @@
 }
 .error__return-link {
     text-align: center;
-    color: #75E4FD;
-    background: rgba(43, 44, 51, 1);
+    color: $cyan;
+    background: $livid;
     padding: 0.4rem 2.5rem;
     border-radius: 7px;
     margin-top: 3rem;
     cursor: pointer;
     &:hover {
-        background: rgb(50, 51, 59);
+        background: $lighter;
     }
 }

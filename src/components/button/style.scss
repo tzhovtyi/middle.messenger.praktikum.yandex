@@ -1,7 +1,8 @@
-.btn-main {
+@import '../../variables';
+.btn-div {
     color: white;
     border: none;
-    background: rgba(5, 72, 243, 1);
+    background: $strong-blue;
     border-radius: 8px;
     height: 2.5rem;
     display: flex;

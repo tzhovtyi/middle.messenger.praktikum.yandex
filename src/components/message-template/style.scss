@@ -1,5 +1,6 @@
+@import '../../variables';
 .message {
-    background-color: #33393F;
+    background-color: $dark-gray;
     width: fit-content;
     max-width: 40%;
     font-weight: 500;
@@ -19,7 +20,7 @@
     font-size: 9px;
     line-height: 9px;
     text-align: right;
-    color: #999999;
+    color: $gray;
     display: inline-block;
     align-self: flex-end;
     padding-left: 5px;

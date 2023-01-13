@@ -1,3 +1,4 @@
+@import '../../variables';
 .chat {
     width: 100vw;
     height: 100vh;
@@ -38,7 +39,7 @@
     margin-bottom: 1.5rem;
 }
 .chat-sidebar__message-search-input {
-    background: #3D444B;
+    background: $blue-gray;
     width: 100%;
     border-radius: 5px;
     padding: 7px 5px 7px 30px;
@@ -107,7 +108,6 @@
     min-height: 3rem;
     display: flex;
     align-items: flex-end;
-    // position: absolute;
     bottom: 0px;
     * {
         margin-top: auto;
@@ -115,7 +115,7 @@
     }
 }
 .chat-lent__messages-input-container__textarea {
-    background: #282E33;
+    background: $blue-gray;
     width: 85%;
     border-radius: 5px;
     padding: 5px;
@@ -125,7 +125,7 @@
     margin-left: 5px;
 }
 .chat-lent__messages-input-container__send-btn {
-    background: #0548F3;
+    background: $strong-blue;
     height: 35px;
     width: 35px;
     border-radius: 40px;

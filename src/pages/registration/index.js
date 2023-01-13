@@ -8,32 +8,39 @@ export default (props = {}) => {
     const fieldsRenderData = [
         {
         label: 'Почта',
-        id: 'email'
+        id: 'email',
+        name: 'email'
         }, 
         {
         label: 'Логин',
-        id: 'login'
+        id: 'login',
+        name: 'login'
         },
         {
         label: 'Имя',
-        id: 'first_name'
+        id: 'first_name',
+        name: 'first_name'
         },
         {
         label: 'Фамилия',
-        id: 'second_name'
+        id: 'second_name',
+        name: 'second_name'
         },
         {
         label: 'Телефон',
-        id: 'phone'
+        id: 'phone',
+        name: 'phone'
         },
         {
         label: 'Пароль',
         id: 'password',
+        name: 'password',
         inputType: 'password'
         },
         {
         label: 'Пароль (еще раз)',
         id: 'password_repeated',
+        name: 'password_repeated',
         inputType: 'password'
         }    
     ];

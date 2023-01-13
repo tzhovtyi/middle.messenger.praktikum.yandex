@@ -1,3 +1,4 @@
+@import '../../variables';
 .settings {
     width: 100vw;
     height: 100vh;
@@ -8,7 +9,7 @@
 .settings-sidebar {
     height: 100%;
     width: 3rem;
-    background: rgba(255, 255, 255, 0.1);
+    background: $lighter;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +18,7 @@
     left: 0;
 }
 .settings-sidebar__link {
-    background: #3369F3;
+    background: $light-blue;
     width: 30px;
     height: 30px;
     padding: 2px;
@@ -35,7 +36,7 @@
     height: 100px;
     width:100px;
     border-radius: 100px;
-    background: rgb(182, 182, 182);
+    background: $gray;
     margin-top: 2rem;
     position: relative;
     &:hover::before {
@@ -45,7 +46,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.105);
+        background: $darker;
         color: white;
         border-radius: 100px;
         display: flex;
@@ -53,7 +54,7 @@
         align-items: center;
         text-align: center;
         cursor: pointer;
-        box-shadow: 0px 0px 0px 2px rgba(255, 255, 255, 0.159);
+        box-shadow: 0px 0px 0px 2px $lighter;
     }
 }
 .settings__user-name {
@@ -75,7 +76,7 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    background: rgba(0, 0, 0, 0.377);
+    background: $darker-strong;
     display: none;
     place-items: center;
 }
@@ -98,9 +99,9 @@
 }
 .settings__change-avatar-file-choice {
     background: transparent;
-    color: #3369F3;
+    color: $light-blue;
     padding: 0;
     border: none;
-    text-decoration: underline #3369F3;
+    text-decoration: underline $light-blue;
     cursor: pointer;
 }
