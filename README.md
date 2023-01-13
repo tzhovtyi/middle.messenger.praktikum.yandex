@@ -18,5 +18,4 @@ Pages links for the reviewer:
 [/#chat](https://practicum-chat-app.netlify.app/#registration) - Chat  
 [/#settings](https://practicum-chat-app.netlify.app/#settings) - Settings  
 [/#404](https://practicum-chat-app.netlify.app/#404) - 404 error  
-[/#500](https://practicum-chat-app.netlify.app/#500) - 5** error  
-
+[/#500](https://practicum-chat-app.netlify.app/#500) - 5** error

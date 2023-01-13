@@ -1,11 +1,11 @@
-<main class="registration">
+<div class="registration">
     <div class="registration-form"> 
         <h4>Вход</h4>
-        {{>inputField label = 'Логин' id = 'login'}}
+        {{>inputField label = 'Логин' id = 'login' name = 'login'}}
         <div id="login-input-error" class="input-error-message"></div>
-        {{>inputField label = 'Пароль' id = 'password' inputType='password'}}
+        {{>inputField label = 'Пароль' id = 'password' name = 'password' inputType='password'}}
         <div id="password-input-error" class="input-error-message"></div>
         {{{logInBtn}}}
         <a href="#registration" class='return-link'>Нет аккаунта?</a>
     </div>
-</main>
+</div>

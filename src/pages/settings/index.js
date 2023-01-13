@@ -11,31 +11,37 @@ import { user } from '../../mockData';
 const renderData = [
     {
         id: 'first_name',
+        name: 'first_name',
         label: 'Имя',
         value: user.first_name
     },
     {
         id: 'second_name',
+        name: 'second_name',
         label: 'Фамилия',
         value: user.second_name
     },
     {
         id: 'display_name',
+        name: 'display_name',
         label: 'Имя в чате',
         value: user.display_name
     },
     {
         id: 'login',
+        name: 'login',
         label: 'Логин',
         value: user.login
     },
     {
         id: 'email',
+        name: 'email',
         label: 'Почта',
         value: user.email
     },
     {
         id: 'phone',
+        name: 'phone',
         label: 'Телефон',
         value: user.phone
     }

@@ -4,6 +4,6 @@ import './style.scss';
 
 Handlebars.registerPartial('settingsField', tpl);
 
-export default (content, timestamp) => {
-	return Handlebars.compile(tpl)(content, timestamp);
+export default () => {
+	return Handlebars.compile(tpl)();
 }
