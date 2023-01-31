@@ -1,0 +1,15 @@
+@import '../../variables';
+.btn-div {
+    color: white;
+    border: none;
+    background: $strong-blue;
+    border-radius: 8px;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}

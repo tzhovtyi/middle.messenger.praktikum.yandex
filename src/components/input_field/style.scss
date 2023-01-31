@@ -1,0 +1,30 @@
+@import '../../variables';
+.form-field {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 80%;
+}
+.form-field__label {
+    font-size: 13px;
+    position: absolute;
+    top: 50%;
+    font-weight: 400;
+    color: $gray;
+    transition: transform 0.25s;
+    transform-origin: left;
+    cursor: pointer;
+}
+.form-field__input {
+    color: white;
+    padding: 17px 1px 0px 1px;
+    font-size: 13px;
+    border-bottom: solid 1px $blue;
+    &:focus+.form-field__label, 
+    &:not(:placeholder-shown)+.form-field__label  {
+        transform: translate(0px, -15px) scale(0.7); 
+    }
+    &::placeholder {
+        color: transparent;
+    }
+}

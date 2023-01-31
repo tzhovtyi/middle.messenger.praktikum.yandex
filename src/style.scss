@@ -1,0 +1,72 @@
+@import './variables';
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: $base-background;
+    font-family: 'Inter', sans-serif;
+    color: white;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 13px;
+}
+input {
+    appearance: none;
+    border: none;
+    background: transparent;
+    &:focus {
+        outline: none;
+    }
+}
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+textarea {
+    resize: none;
+    border: none;
+    font-family: inherit;
+    &:focus {
+        outline: none;
+    }
+    &::-webkit-scrollbar {
+        display: none;
+      }
+}
+a {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 11px;
+    line-height: 11px;
+}
+h1 {
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 40px;
+}
+h2 {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 20px;
+}
+h3 {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 18px;
+}
+h4 {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 18px;
+}
+h5 {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 13px;
+}

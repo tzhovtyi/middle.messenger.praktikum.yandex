@@ -1,0 +1,22 @@
+@import '../../variables';
+.error {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+.error__return-link {
+    text-align: center;
+    color: $cyan;
+    background: $livid;
+    padding: 0.4rem 2.5rem;
+    border-radius: 7px;
+    margin-top: 3rem;
+    cursor: pointer;
+    &:hover {
+        background: $lighter;
+    }
+}

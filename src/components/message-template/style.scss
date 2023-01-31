@@ -1,0 +1,27 @@
+@import '../../variables';
+.message {
+    background-color: $dark-gray;
+    width: fit-content;
+    max-width: 40%;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    border-radius: 7px 7px 7px 0px;
+    padding: 5px;
+    display: flex;
+}
+.message_right {
+    margin-left: auto;
+    border-radius: 7px 7px 0px 7px;
+
+}
+.message__timestamp {
+    font-weight: 500;
+    font-size: 9px;
+    line-height: 9px;
+    text-align: right;
+    color: $gray;
+    display: inline-block;
+    align-self: flex-end;
+    padding-left: 5px;
+}
