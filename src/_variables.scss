@@ -1,14 +1,13 @@
 $base-background: #18191D;
-$strong-blue: rgba(5, 72, 243, 1);
-$blue: rgba(51, 105, 243, 1);
-$gray: rgba(153, 153, 153, 1);
+$strong-blue: rgb(5 72 243);
+$blue: rgb(51 105 243);
+$gray: rgba(153 153 153);
 $blue-gray: #3D444B;
 $dark-gray: #33393F;
-$livid: rgba(43, 44, 51, 1);
+$livid: rgb(43 44 51);
 $bright-livid: #282833;
 $light-blue: #3369F3;
 $cyan: #75E4FD;
-
-$lighter: rgba(255, 255, 255, 0.1);
-$darker: rgba(0, 0, 0, 0.14);
-$darker-strong: rgba(0, 0, 0, 0.4);
+$lighter: rgba(255 255 255 / 0.1);
+$darker: rgba(0 0 0 / 0.14);
+$darker-strong: rgba(0 0 0 / 0.4);

@@ -1,16 +1,19 @@
-@import '../../variables';
-.return-link {
-    text-align: center;
-    color: $light-blue;
-    margin: 0;
-    cursor: pointer;
-}
-.input-error-message {
-    font-weight: 400;
-    font-size: 10px;
-    line-height: 8px;
-    color: red;
-    text-align: left;
-    width: 80%;
-    transform: translateY(-12px);
+@import "../../variables";
+.for-reviewer {
+    position: absolute;
+    height: 130px;
+    width: 100px;
+    bottom: 20px;
+    left: 0;
+    background: $bright-livid;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    a {
+        font-size: 12px;
+        color: $cyan;
+        cursor: pointer;
+    }
 }

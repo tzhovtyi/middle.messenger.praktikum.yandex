@@ -1,5 +1,5 @@
 //temporal placeholder data
-export const messages = [
+export const messagesData = [
     {
         content: 'Вот он Ленин на портете, в рамке зелени густой, был он лучше всех на свете - и великий, и простой!',
         timestamp: '02:12',
@@ -25,21 +25,33 @@ export const messages = [
         timestamp: '14:12',
         fromViewer: true
     },
-]
-export const dialogues = [
+];
+export const dialoguesData = [
     {
         user: {
             name: 'Данил',
             avatar: null
         },
         lastMessage: {
-                content: 'Вот он Ленин на портете, в рамке зелени густой, был он лучше всех на свете - и великий, и простой!',
-                timestamp: '02:12',
-                fromViewer: false
+            content: 'Вот он Ленин на портете, в рамке зелени густой, был он лучше всех на свете - и великий, и простой!',
+            timestamp: '02:12',
+            fromViewer: false
         },
         unreadMessagesCount: 4
+    },
+    {
+        user: {
+            name: 'Петя',
+            avatar: null
+        },
+        lastMessage: {
+            content: 'Появился, значит, в Зоне Черный Сталкер. Заходит к людям в ',
+            timestamp: '06:55',
+            fromViewer: false
+        },
+        unreadMessagesCount: 1
     }
-]
+];
 export const user = {
     first_name: 'Иван',
     second_name: 'Иваныч',
@@ -47,4 +59,4 @@ export const user = {
     login: 'ivan1998',
     email: 'ivan_ivanych@yandex.ru',
     phone: '89001234567'
-}
+};

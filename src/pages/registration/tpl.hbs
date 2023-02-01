@@ -1,10 +1,16 @@
-<div class="registration">
-    <div class="registration-form"> 
-        <h4 class="registration-form__title">Регистрация</h4>
-        {{#each fieldsRenderData}}
-        {{>inputField label = label id = id name = name}}
-        {{/each}}
-        {{{singUpBtn}}}
-        <a href="/" class='return-link'>Войти</a>
-    </div>
-</div>
+<form class="registration-form">
+    <h4 class="registration-form__title">Регистрация</h4>
+    {{{inputFields}}}
+    {{{singUpBtn}}}
+    <a href="/" class='return-link'>Войти</a>
+</form>
+
+<nav class="for-reviewer">
+    <h5>For reviewer</h5>
+    <a href="/">Вход</a>
+    <a href="/#registration">Регистрация</a>
+    <a href="/#chat">Чат</a>
+    <a href="/#settings">Настройки</a>
+    <a href="/#404">404</a>
+    <a href="/#500">5**</a>
+</nav>

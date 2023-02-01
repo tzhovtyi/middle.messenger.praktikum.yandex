@@ -1,10 +1,15 @@
-<div class="user-info-container"> 
-    <div class="settings__field">
+<div class="settings__field">
+    <div class="settings__field__input-container">
         <span class="settings__field__label">Старый пароль</span>
         <input class="settings__field__input" id="oldPassword" name="oldPassword" type="password">
     </div>
-    <div class="settings__field">
+    <div id="error-oldPassword" class="settings__field__input__error"></div>
+</div>
+<div class="settings__field">
+    <div class="settings__field__input-container">
         <span class="settings__field__label">Новый пароль</span>
         <input class="settings__field__input" id="newPassword" name="newPassword" type="password">
     </div>
+    <div id="error-newPassword" class="settings__field__input__error"></div>
 </div>
+{{{submitBtn}}}
