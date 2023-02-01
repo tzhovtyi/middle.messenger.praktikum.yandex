@@ -1,11 +1,19 @@
-<div class="registration">
-    <div class="registration-form"> 
-        <h4>Вход</h4>
-        {{>inputField label = 'Логин' id = 'login' name = 'login'}}
-        <div id="login-input-error" class="input-error-message"></div>
-        {{>inputField label = 'Пароль' id = 'password' name = 'password' inputType='password'}}
-        <div id="password-input-error" class="input-error-message"></div>
-        {{{logInBtn}}}
-        <a href="#registration" class='return-link'>Нет аккаунта?</a>
-    </div>
-</div>
+<form class="registration-form">
+    <h4>Вход</h4>
+    {{{loginField}}}
+    <div id="login-input-error" class="input-error-message"></div>
+    {{{passwordField}}}
+    <div id="password-input-error" class="input-error-message"></div>
+    {{{logInBtn}}}
+    <a href="#registration" class='return-link'>Нет аккаунта?</a>
+</form>
+
+<nav class="for-reviewer">
+    <h5>For reviewer</h5>
+    <a href="/">Вход</a>
+    <a href="/#registration">Регистрация</a>
+    <a href="/#chat">Чат</a>
+    <a href="/#settings">Настройки</a>
+    <a href="/#404">404</a>
+    <a href="/#500">5**</a>
+</nav>

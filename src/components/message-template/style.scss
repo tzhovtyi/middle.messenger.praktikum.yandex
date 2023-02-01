@@ -1,4 +1,4 @@
-@import '../../variables';
+@import "../../variables";
 .message {
     background-color: $dark-gray;
     width: fit-content;
@@ -12,8 +12,7 @@
 }
 .message_right {
     margin-left: auto;
-    border-radius: 7px 7px 0px 7px;
-
+    border-radius: 7px 7px 0px;
 }
 .message__timestamp {
     font-weight: 500;

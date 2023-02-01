@@ -1,4 +1,4 @@
-@import '../../variables';
+@import "../../variables";
 .settings {
     width: 100vw;
     height: 100vh;
@@ -33,14 +33,14 @@
     background-repeat: no-repeat;
 }
 .settings__avatar {
-    height: 100px;
-    width:100px;
+    min-height: 100px;
+    min-width: 100px;
     border-radius: 100px;
     background: $gray;
-    margin-top: 2rem;
+    margin-top: 1rem;
     position: relative;
     &:hover::before {
-        content: 'Поменять аватар';
+        content: "Поменять аватар";
         position: absolute;
         top: 0;
         left: 0;
@@ -58,16 +58,16 @@
     }
 }
 .settings__user-name {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     font-weight: 500;
     font-size: 1.1rem;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 }
 .settings__actions-container {
     display: flex;
     flex-direction: column;
     width: 40%;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 }
 .settings__user-info-container {
     width: 100%;

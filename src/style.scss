@@ -1,4 +1,4 @@
-@import './variables';
+@import "./variables";
 * {
     box-sizing: border-box;
     margin: 0;
@@ -9,7 +9,7 @@ body {
     height: 100vh;
     overflow: hidden;
     background: $base-background;
-    font-family: 'Inter', sans-serif;
+    font-family: Inter, sans-serif;
     color: white;
     font-weight: 500;
     font-size: 13px;
@@ -37,7 +37,7 @@ textarea {
     }
     &::-webkit-scrollbar {
         display: none;
-      }
+    }
 }
 a {
     text-decoration: none;
