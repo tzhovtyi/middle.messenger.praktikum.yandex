@@ -45,7 +45,7 @@ class FormValidator {
         } else {
             this._setErrorMessage(field, this._invalidInputMessages[dataName] || this._invalidInputMessages.password );
             return false;
-        }   
+        }
     }
 
     public isNotEmpty(field: HTMLTextAreaElement | HTMLInputElement ): boolean {
@@ -61,7 +61,7 @@ class FormValidator {
         event.preventDefault();
         const request: stringsObject = {};
         this._form = event.target as HTMLFormElement;
-        const fields = Array.from(this._form.elements).filter(element => 
+        const fields = Array.from(this._form.elements).filter(element =>
             element.tagName === 'INPUT') as HTMLInputElement[];
         let allValid = true;
         //iterates until the end to show all user mistakes

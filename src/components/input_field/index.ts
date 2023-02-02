@@ -7,7 +7,7 @@ export default class InputField extends Block {
     constructor(tag = 'div', propsAndChildren: BlockPropsAndChildren = {}) {
         super(tag, propsAndChildren, 'form-field');
         if (!this._props.inputType) {
-            this._props.inputType = 'text';    
+            this._props.inputType = 'text';
         }
     }
     render() {

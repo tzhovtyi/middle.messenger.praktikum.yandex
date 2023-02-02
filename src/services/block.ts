@@ -10,7 +10,7 @@ export default class Block {
         FLOW_CDU: 'flow:component-did-update',
         FLOW_RENDER: 'flow:render'
     };
-  
+
     _props: BlockPropsAndChildren;
     _children: BlockChildren;
     _id: string;
@@ -18,7 +18,7 @@ export default class Block {
     _meta: BlockMeta;
     _eventBus: EventBus;
     _class: string;
-  
+
     constructor(tag = 'div', propsAndChildren: BlockPropsAndChildren = {}, className = '') {
 
         const {children, props } = this.separateChildComponents(propsAndChildren);
@@ -29,24 +29,24 @@ export default class Block {
         this._class = className;
         this._props = this._makePropsProxy(props);
         this._meta = { tag, props};
-   
+
         this._registerEvents();
         this._eventBus.emit(Block.EVENTS.INIT);
     }
-  
+
     _registerEvents(): void {
         this._eventBus.on(Block.EVENTS.INIT, this.init.bind(this));
         this._eventBus.on(Block.EVENTS.FLOW_CDM, this._componentDidMount.bind(this));
         this._eventBus.on(Block.EVENTS.FLOW_CDU, this._componentDidUpdate.bind(this));
         this._eventBus.on(Block.EVENTS.FLOW_RENDER, this._render.bind(this));
     }
-  
-  
+
+
     init(): void {
         this._element = this.createDocumentElement(this._meta?.tag);
         this._eventBus.emit(Block.EVENTS.FLOW_RENDER);
     }
-    
+
     createDocumentElement(tag: string): HTMLElement | HTMLTemplateElement {
         const element = document.createElement(tag);
         return element;
@@ -56,26 +56,39 @@ export default class Block {
         const block:Node = this.render();
         this.removeEvents();
         this._element.innerHTML = '';
-        this._element.appendChild(block);  
+        this._element.appendChild(block);
         this.addEvents();
         this._element.setAttribute('class', this._class);
     }
-      
+
     render(): Node {
         return document.createElement('div');
     }
-    
 
     addEvents() {
         const {events = {}} = this._props;
         Object.keys(events).forEach((item) => {
-            this._element.addEventListener(item, events[item]);
+            //all components main wrappers are divs or forms
+            //blur and focus should be applied to input elements directly
+            if(item === 'blur' || item === 'focus') {
+                const input = this._element.querySelector('input');
+                input!.addEventListener(item, events[item]);
+            } else {
+                this._element.addEventListener(item, events[item]);
+            }
         });
     }
     removeEvents() {
         const {events = {}} = this._props;
         Object.keys(events).forEach((item) => {
-            this._element.removeEventListener(item, events[item]);
+            if(item === 'blur' || item === 'focus') {
+                const input = this._element.querySelector('input');
+                if (input) {
+                    input.removeEventListener(item, events[item]);
+                }
+            } else {
+                this._element.removeEventListener(item, events[item]);
+            }
         });
     }
 
@@ -93,7 +106,7 @@ export default class Block {
         return {children, props};
     }
 
-    compile(template: string, props?: BlockPropsAndChildren) {       
+    compile(template: string, props?: BlockPropsAndChildren) {
         if(typeof(props) === 'undefined') {
             props = this._props;
         }
@@ -147,14 +160,14 @@ export default class Block {
             this._eventBus.emit(Block.EVENTS.FLOW_RENDER);
         }
     }
-  
+
     _componentDidUpdate(oldProps: BlockPropsAndChildren, newProps: BlockPropsAndChildren): void {
         const response = this.componentDidUpdate(oldProps, newProps);
         if (response) {
             this._eventBus.emit(Block.EVENTS.FLOW_RENDER);
         }
     }
-  
+
     componentDidUpdate(oldProps: BlockPropsAndChildren, newProps: BlockPropsAndChildren): boolean {
     //does not compare objects, only references
     //excludes re-render when props weren't changed explicitly
@@ -162,9 +175,9 @@ export default class Block {
             return false;
         }
         return true;
-    
+
     }
-  
+
     setProps(newProps: BlockPropsAndChildren): void {
         const {children, props} = this.separateChildComponents(newProps);
         if (Object.values(children).length) {
@@ -174,7 +187,7 @@ export default class Block {
             Object.assign(this._props, props);
         }
     }
-  
+
     _makePropsProxy(props: BlockPropsAndChildren ): BlockChildren | BlockPropsAndChildren{
         // eslint-disable-next-line @typescript-eslint/no-this-alias
         const self = this;
@@ -182,12 +195,12 @@ export default class Block {
             get(target, prop: string) {
                 const value = target[prop];
                 return typeof value === 'function' ? value.bind(target) : value;
-            },  
+            },
             set(target, prop: string, value: string | number | number[] | string[] | Block | Block[]) {
                 const old = target[prop];
                 target[prop] = value;
                 self._eventBus.emit(Block.EVENTS.FLOW_CDU, old, value);
-                return true; 
+                return true;
             }
         });
         return props;
@@ -196,11 +209,11 @@ export default class Block {
     getContent(): HTMLElement {
         return this._element;
     }
-  
-    show(): void { 
-        this._element.style.display = 'flex';    
+
+    show(): void {
+        this._element.style.display = 'flex';
     }
-  
+
     hide(): void {
         this._element.style.display = 'none';
     }

@@ -13,7 +13,18 @@ const singUpBtn = new Button('div', {
 });
 
 const inputFields = renderData.map(data => {
-    return new InputField('div', data);
+    return new InputField('div',
+        {...data,
+            events: {
+                //in the block logic, will be applied to/removed from the inputs directly
+                focus: e=> {
+                    validator.validateField(e.target as HTMLInputElement);
+                },
+                blur: e=> {
+                    validator.validateField(e.target as HTMLInputElement);
+                },
+            }
+        });
 });
 
 class RegistrationPage extends Block {
@@ -22,14 +33,6 @@ class RegistrationPage extends Block {
     }
     constructor(tag = 'div', propsAndChildren: BlockPropsAndChildren = {}) {
         super(tag, propsAndChildren, 'registration');
-    }
-    addEvents() {
-        const {events = {}} = this._props;
-        this._element.addEventListener('submit', events['submit']);
-        this._element.querySelectorAll('input').forEach(item => {
-            item.addEventListener('blur', events['blur']);
-            item.addEventListener('focus', events['focus']);
-        });
     }
 }
 
@@ -40,12 +43,6 @@ export default function createRegistrationPage() {
         events: {
             submit: e => {
                 return validator.validateSubmit(e);
-            },
-            blur: e => {
-                validator.validateField(e.target as HTMLInputElement);
-            },
-            focus: e => {
-                validator.validateField(e.target as HTMLInputElement);
             }
         }
     });

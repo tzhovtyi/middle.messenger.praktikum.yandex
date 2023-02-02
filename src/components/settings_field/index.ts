@@ -11,4 +11,3 @@ export default class SettingsField extends Block {
         return this.compile(tpl);
     }
 }
- 

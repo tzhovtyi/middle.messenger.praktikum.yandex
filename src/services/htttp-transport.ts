@@ -7,17 +7,17 @@ export default class HTTPTransport {
         PUT: 'PUT',
         DELETE: 'DELETE'
     };
-    public get = (url:string, options: RequestOptionsMethodGet = {}): Promise<XMLHttpRequest> => {		
+    public get = (url:string, options: RequestOptionsMethodGet = {}): Promise<XMLHttpRequest> => {
         const queryString = options.data ? url + '?' + this._queryStringify(options.data) : url;
         return this._request(queryString, {method: this._METHODS.GET}, options.timeout);
     };
-    public put = (url:string, options: RequestOptions = {}) => {				 
+    public put = (url:string, options: RequestOptions = {}) => {
         return this._request(url, {...options, method: this._METHODS.PUT}, options.timeout);
     };
-    public post = (url:string, options: RequestOptions = {}) => {				 
+    public post = (url:string, options: RequestOptions = {}) => {
         return this._request(url, {...options, method: this._METHODS.POST}, options.timeout);
     };
-    public delete = (url:string, options: RequestOptions = {}) => {				 
+    public delete = (url:string, options: RequestOptions = {}) => {
         return this._request(url, {...options, method: this._METHODS.DELETE}, options.timeout);
     };
 
@@ -46,14 +46,14 @@ export default class HTTPTransport {
             xhr.onerror = reject;
             xhr.timeout = timeout;
             xhr.ontimeout = reject;
-  
+
             if (isGet || !data) {
                 xhr.send();
             } else {
                 xhr.send(data);
             }
         });
-    };	
+    };
     private _queryStringify(obj: {[key: string]: string}) {
         const str = [];
         for (const p in obj)
@@ -61,5 +61,5 @@ export default class HTTPTransport {
                 str.push(encodeURIComponent(p) + '=' + obj[p].toString());
             }
         return str.join('&');
-    }	
+    }
 }

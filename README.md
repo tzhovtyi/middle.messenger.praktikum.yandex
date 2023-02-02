@@ -14,13 +14,13 @@
 
 #### Technical features:
 
-✔️ SPA application built with native class components
-✔️ No frameworks are used
-✔️ Typescript
-✔️ Only one frontend library (Handlebars)
-✔️ Styles written in SCSS
-✔️ Compiled with Parcel
-✔️ Deployed on Netlify
+✔️ SPA application built with native class components  
+✔️ No frameworks are used  
+✔️ Typescript  
+✔️ Only one frontend library (Handlebars)  
+✔️ Styles written in SCSS  
+✔️ Compiled with Parcel  
+✔️ Deployed on Netlify  
 ✔️ All form validations performed by one class
 
 #### Pages links:
