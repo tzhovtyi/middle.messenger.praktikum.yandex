@@ -42,7 +42,7 @@ export default function createChatPage() {
                     console.log('sending request:');
                     console.log(req);
                 }
-                
+
             }
         }
     }, 'chat');

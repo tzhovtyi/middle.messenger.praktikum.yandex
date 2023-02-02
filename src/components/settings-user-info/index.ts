@@ -3,39 +3,24 @@ import './style.scss';
 import SettingsField from '../settings_field';
 import Button from '../button';
 import Block from '../../services/block';
-import { user } from '../../mockData';
 import { BlockPropsAndChildren } from '../../services/types';
+import { renderData } from './renderData';
+import validator from '../../services/formvalidator';
 
-const firstNameField = new SettingsField('div', {
-    id: 'first_name',
-    label: 'Имя',
-    value: user.first_name
+const userInfoFields = renderData.map(data => {
+    return new SettingsField('div',
+        {...data,
+            events: {
+                focus: e=> {
+                    validator.validateField(e.target as HTMLInputElement);
+                },
+                blur: e=> {
+                    validator.validateField(e.target as HTMLInputElement);
+                }
+            }
+        });
 });
-const secondNameField = new SettingsField('div', {
-    id: 'second_name',
-    label: 'Фамилия',
-    value: user.second_name
-});
-const displayNameField = new SettingsField('div', {
-    id: 'display_name',
-    label: 'Имя в чате',
-    value: user.display_name
-});
-const loginField = new SettingsField('div', {
-    id: 'login',
-    label: 'Логин',
-    value: user.login
-});
-const emailField = new SettingsField('div', {
-    id: 'email',
-    label: 'Почта',
-    value: user.email
-});
-const phoneField = new SettingsField('div', {
-    id: 'phone',
-    label: 'Телефон',
-    value: user.phone
-});
+
 const sumbitBtn = new Button('div', {
     btnType: 'submit',
     label: 'Сохранить изменения'
@@ -55,12 +40,7 @@ class SettingsUserInfo extends Block {
 export const submitUserInfoBtn = sumbitBtn;
 export function createSettingsUserInfo() {
     return new SettingsUserInfo('form', {
-        firstNameField: firstNameField,
-        secondNameField: secondNameField,
-        displayNameField: displayNameField,
-        loginField: loginField,
-        emailField: emailField,
-        phoneField: phoneField,
+        userInfoFields:userInfoFields,
         sumbitBtn: sumbitBtn
     });
 }

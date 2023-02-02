@@ -22,11 +22,11 @@ export const renderData = [
     {
         label: 'Пароль',
         id: 'password',
-        inputType: 'password' 
+        inputType: 'password'
     },
     {
         label: 'Пароль (еще раз)',
         id: 'password_repeated',
-        inputType: 'password' 
+        inputType: 'password'
     }
 ];

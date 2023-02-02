@@ -45,6 +45,10 @@ function fireUserAction(e: Event) {
     case 'passwordChange':
         submitPasswordChangeBtn.show();
         settings.setProps({ userInfo: changePasswordForm });
+        document.querySelectorAll('.settings__field__input').forEach(element => {
+            element.removeAttribute('disabled');
+            element.classList.add('settings__field__input_active');
+        });
         settingsActions.hide();
         break;
     case 'logOut':
@@ -56,14 +60,6 @@ function fireUserAction(e: Event) {
 class SettingsPage extends Block {
     constructor(tag = 'div', propsAndChildren: BlockPropsAndChildren = {}) {
         super(tag, propsAndChildren, 'settings');
-    }
-    addEvents() {
-        const {events = {}} = this._props;
-        this._element.addEventListener('submit', events['submit']);
-        this._element.querySelectorAll('input').forEach(item => {
-            item.addEventListener('blur', events['blur']);
-            item.addEventListener('focus', events['focus']);
-        });
     }
     render() {
         return this.compile(tpl);
@@ -78,7 +74,7 @@ const settings = new SettingsPage('div', {
         click: e => {
             if(e.target instanceof Element && e.target.id === 'avatar') {
                 const el = <HTMLElement>document.querySelector('.settings__change-avatar-menu-container');
-                el.style.display = 'grid';  
+                el.style.display = 'grid';
             }
         },
         submit: e => {
@@ -102,12 +98,6 @@ const settings = new SettingsPage('div', {
                     break;
                 }
             }
-        },
-        blur: e => {
-            validator.validateField(e.target as HTMLInputElement);
-        },
-        focus: e => {
-            validator.validateField(e.target as HTMLInputElement);
         }
     }
 });

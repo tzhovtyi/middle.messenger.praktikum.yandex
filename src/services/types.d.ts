@@ -10,8 +10,8 @@ export interface BlockEvents {
 
 export type BlockPropsAndChildren = {
     events?: BlockEvents
-} & { 
-    [key: string]: unknown 
+} & {
+    [key: string]: unknown
 };
 
 export interface BlockMeta {
@@ -29,7 +29,7 @@ export interface ValidationRegex {
 export interface stringsObject {
      [key: string]: string
  }
- 
+
 type RequestData = Document | XMLHttpRequestBodyInit | null | undefined
 
 
