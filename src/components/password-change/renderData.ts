@@ -2,11 +2,13 @@ export const renderData = [
     {
         id: 'oldPassword',
         label: 'Старый пароль',
-        value: ''
+        value: '',
+        type: 'password'
     },
     {
         id: 'newPassword',
         label: 'Новый пароль',
-        value: ''
+        value: '',
+        type: 'password'
     }
 ];

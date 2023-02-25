@@ -52,11 +52,3 @@ export const dialoguesData = [
         unreadMessagesCount: 1
     }
 ];
-export const user = {
-    first_name: 'Иван',
-    second_name: 'Иваныч',
-    display_name: 'Ваня',
-    login: 'ivan1998',
-    email: 'ivan_ivanych@yandex.ru',
-    phone: '89001234567'
-};

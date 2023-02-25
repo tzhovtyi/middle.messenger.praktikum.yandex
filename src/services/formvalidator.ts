@@ -53,16 +53,18 @@ class FormValidator {
     }
 
     private _setErrorMessage(field: HTMLInputElement, mes: string) {
-        const errorDiv: HTMLElement = document.querySelector(`#error-${field.name}`)!;
+        const errorDiv: HTMLElement = field.parentElement!.querySelector(`#error-${field.name}`)!
+        || document.querySelector(`#error-${field.name}`)!;
         errorDiv.innerText = mes;
     }
 
     public validateSubmit(event: Event): boolean {
         event.preventDefault();
-        const request: stringsObject = {};
         this._form = event.target as HTMLFormElement;
-        const fields = Array.from(this._form.elements).filter(element =>
-            element.tagName === 'INPUT') as HTMLInputElement[];
+
+        const fields = Array.from(this._form.elements).filter(
+            element => element.tagName === 'INPUT'
+        ) as HTMLInputElement[];
         let allValid = true;
         //iterates until the end to show all user mistakes
         fields.forEach(field => {
@@ -70,19 +72,7 @@ class FormValidator {
                 allValid = false;
             }
         });
-
-        if (allValid) {
-            fields.forEach(field => {
-                if(field.name !== 'password_repeated') {
-                    request[field.name] = field.value;
-                }
-            });
-            console.log('send http request:');
-            console.log(request);
-            return true;
-        } else {
-            return false;
-        }
+        return allValid;
     }
 }
 

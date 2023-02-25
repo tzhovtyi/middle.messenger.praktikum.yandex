@@ -2,12 +2,16 @@ import tpl from 'bundle-text:./tpl.hbs';
 import './style.scss';
 import Block from '../../services/block';
 import { BlockPropsAndChildren } from '../../services/types';
+import { withUserSearch } from '../../services/store/connect';
 
-export default class SidebarDialogue extends Block {
+class ChatRemoveUser extends Block {
     constructor(tag = 'div', propsAndChildren: BlockPropsAndChildren = {}) {
-        super(tag, propsAndChildren, 'sidebar-dialogue');
+        super(tag, propsAndChildren, 'add-user-menu');
     }
+
     render() {
         return this.compile(tpl);
     }
 }
+
+export default withUserSearch(ChatRemoveUser);

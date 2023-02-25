@@ -6,10 +6,23 @@ import validator from '../../services/formvalidator';
 import './style.scss';
 import { BlockPropsAndChildren } from '../../services/types';
 import { renderData } from './renderData';
+import router from '../../services/routing/router';
+import authController from '../../services/controllers/auth-controller';
 
 const logInBtn = new Button('div', {
     btnType: 'submit',
     label: 'Войти'
+});
+
+const returnBtn = new Button('div', {
+    label: 'Нет аккаунта?',
+    btnType: 'button',
+    btnClass: 'return-link',
+    events: {
+        click: ()=> {
+            router.go('/sign-up');
+        }
+    }
 });
 
 const inputFields = renderData.map(data => {
@@ -40,10 +53,12 @@ export default function createLoginPage() {
     return new LogInPage('div', {
         logInBtn: logInBtn,
         inputFields:inputFields,
+        returnBtn: returnBtn,
         events: {
-            //validates by regex first, no need to send invalid fields to the server
             submit: e => {
-                validator.validateSubmit(e);
+                if (validator.validateSubmit(e)) {
+                    authController.signIn(e);
+                }
             }
         }
     });

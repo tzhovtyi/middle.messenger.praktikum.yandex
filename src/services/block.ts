@@ -2,6 +2,7 @@ import EventBus from './eventbus';
 import Handlebars from 'handlebars';
 import {v4 as makeUUID} from 'uuid';
 import {BlockPropsAndChildren, BlockMeta, BlockChildren} from './types';
+import isEqual from '../utils/is-equal';
 
 export default class Block {
     static EVENTS = {
@@ -44,7 +45,7 @@ export default class Block {
 
     init(): void {
         this._element = this.createDocumentElement(this._meta?.tag);
-        this._eventBus.emit(Block.EVENTS.FLOW_RENDER);
+        this._eventBus.emit(Block.EVENTS.FLOW_CDM);
     }
 
     createDocumentElement(tag: string): HTMLElement | HTMLTemplateElement {
@@ -94,11 +95,13 @@ export default class Block {
 
     separateChildComponents(propsAndChildren:BlockPropsAndChildren ) : {children: BlockChildren, props: BlockPropsAndChildren} {
         const props: BlockPropsAndChildren = {};
+
         const children: BlockChildren = {};
         Object.keys(propsAndChildren).forEach(key => {
             //checks for arrays of children too
-            if(propsAndChildren[key] instanceof Block || propsAndChildren[key] instanceof Array<Block>) {
+            if(propsAndChildren[key] instanceof Block || (Array.isArray(propsAndChildren[key]) && (propsAndChildren[key] as Array<unknown>)[0] instanceof Block)) {
                 children[key] = propsAndChildren[key] as Block | Block[];
+
             } else {
                 props[key] = propsAndChildren[key];
             }
@@ -125,9 +128,14 @@ export default class Block {
         Object.values(this._children).forEach(child => {
             if(Array.isArray(child)) {
                 const fr = <HTMLTemplateElement>this.createDocumentElement('template');
-                child.forEach(cmp => {
-                    fr.content.appendChild(cmp.getContent());
-                });
+                try {
+                    child.forEach(cmp => {
+                        fr.content.appendChild(cmp.getContent());
+                    });
+                } catch(e) {
+                    console.log(e);
+                }
+
                 const stub = fragment.content.querySelector(`[data-id="${child[0]._id}"]`);
                 if (stub) {
                     stub.replaceWith(fr.content);
@@ -143,6 +151,7 @@ export default class Block {
     }
 
     _componentDidMount() {
+        this._eventBus.emit(Block.EVENTS.FLOW_RENDER);
         this.componentDidMount();
         Object.values(this._children).forEach(child => {
             if (child instanceof Block) {
@@ -162,16 +171,18 @@ export default class Block {
     }
 
     _componentDidUpdate(oldProps: BlockPropsAndChildren, newProps: BlockPropsAndChildren): void {
-        const response = this.componentDidUpdate(oldProps, newProps);
+        const response = this.checkPropsChange(oldProps, newProps);
         if (response) {
+            this.componentDidUpdate();
             this._eventBus.emit(Block.EVENTS.FLOW_RENDER);
         }
     }
+    componentDidUpdate(): void {
+        return;
+    }
 
-    componentDidUpdate(oldProps: BlockPropsAndChildren, newProps: BlockPropsAndChildren): boolean {
-    //does not compare objects, only references
-    //excludes re-render when props weren't changed explicitly
-        if (oldProps === newProps) {
+    checkPropsChange(oldProps: BlockPropsAndChildren, newProps: BlockPropsAndChildren): boolean {
+        if (isEqual(oldProps, newProps)) {
             return false;
         }
         return true;

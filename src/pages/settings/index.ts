@@ -7,19 +7,22 @@ import Button from '../../components/button/';
 import Block from '../../services/block';
 import { BlockPropsAndChildren } from '../../services/types';
 import validator from '../../services/formvalidator';
+import authController from '../../services/controllers/auth-controller';
+import userController from '../../services/controllers/user-controller';
+import router from '../../services/routing/router';
+import { withAvatarURL } from '../../services/store/connect';
 
-const saveAvatarBtn = new Button('div', {
+const returnBtn = new Button('div', {
+    label: '',
     btnType: 'button',
-    label: 'Поменять',
+    btnClass: 'settings-sidebar__link',
     events: {
-        click: () => {
-            const el = <HTMLElement>document.querySelector('.settings__change-avatar-menu-container');
-            el.style.display = 'none';
+        click: ()=> {
+            router.go('/messenger');
         }
     }
 });
 
-//imported as class instances
 const userInfo = createSettingsUserInfo();
 const changePasswordForm = createPasswordChangeForm();
 
@@ -52,7 +55,7 @@ function fireUserAction(e: Event) {
         settingsActions.hide();
         break;
     case 'logOut':
-        console.log('Log Out!');
+        authController.logOut();
         break;
     }
 }
@@ -65,11 +68,13 @@ class SettingsPage extends Block {
         return this.compile(tpl);
     }
 }
+const SettingsPageConnected = withAvatarURL(SettingsPage);
 
-const settings = new SettingsPage('div', {
+const settings = new SettingsPageConnected('div', {
     userInfo: userInfo,
     settingsActions: settingsActions,
-    saveAvatarBtn: saveAvatarBtn,
+    returnBtn: returnBtn,
+    avatarURL: '',
     events: {
         click: e => {
             if(e.target instanceof Element && e.target.id === 'avatar') {
@@ -84,6 +89,7 @@ const settings = new SettingsPage('div', {
             if(valid) {
                 switch (form.id) {
                 case 'userInfoForm':
+                    userController.updateProfile(e);
                     submitUserInfoBtn.hide();
                     settingsActions.show();
                     document.querySelectorAll('.settings__field__input').forEach(element => {
@@ -92,12 +98,32 @@ const settings = new SettingsPage('div', {
                     });
                     break;
                 case 'passwordChangeForm':
-                    submitPasswordChangeBtn.hide();
-                    settingsActions.show();
-                    settings.setProps({ userInfo: userInfo });
+                    (async () => {
+                        const errorDiv: HTMLElement = document.querySelector('#error-oldPassword')!;
+                        const correctPassword = await userController.changePassword(e);
+                        if (correctPassword) {
+                            (document.getElementById('oldPassword') as HTMLInputElement)!.value = '';
+                            (document.getElementById('newPassword') as HTMLInputElement)!.value = '';
+                            submitPasswordChangeBtn.hide();
+                            settingsActions.show();
+                            settings.setProps({ userInfo: userInfo });
+                        } else {
+                            errorDiv.innerText = 'Неверный пароль';
+                        }
+                    })();
                     break;
                 }
             }
+        },
+        change: e => {
+            const files = (e.target as HTMLInputElement).files;
+            if(!files) return;
+            const img = files[0];
+            const formData = new FormData();
+            formData.append('avatar', img);
+            const el = <HTMLElement>document.querySelector('.settings__change-avatar-menu-container');
+            el.style.display = 'none';
+            userController.changeAvatar(formData);
         }
     }
 });

@@ -1,0 +1,36 @@
+@import "../../variables";
+.chat__profile-settings-link {
+    width: 100%;
+    height: 70px;
+    background: $dark-violet;
+    display: flex;
+    padding: 5px 10px;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    border-bottom: 1px solid white;
+    &:hover {
+        background: $dark-violet-shallow;
+    }
+    span {
+        margin-left: 10px;
+        margin-right: auto;
+        font-size: 14px;
+        font-weight: 400;
+    }
+}
+.chat__profile-avatar-container {
+    height: 50px;
+    width: 50px;
+    background: $gray;
+    border-radius: 50px;
+    overflow: hidden;
+    position: relative;
+    img {
+        height: 100%;
+        width: auto;
+        object-fit: cover;
+        z-index: -1;
+        object-position: center;
+    }
+}
