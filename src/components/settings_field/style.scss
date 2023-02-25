@@ -1,19 +1,33 @@
-@import '../../variables';
+@import "../../variables";
 .settings__field {
-    border-bottom: solid white 1px;
     width: 40%;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     margin-bottom: 1rem;
 }
+.settings__field__input-container {
+    border-bottom: solid white 1px;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
 .settings__field__input {
-    width: fit-content;
+    width: 50%;
     text-align: right;
     color: $gray;
     font-weight: 500;
     font-size: 13px;
 }
-
 .settings__field__input_active {
     color: white;
+}
+.settings__field__input__error {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 8px;
+    color: red;
+    text-align: left;
+    width: 100%;
+    padding: 2px;
+    bottom: 0;
 }

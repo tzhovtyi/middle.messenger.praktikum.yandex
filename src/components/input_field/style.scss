@@ -1,9 +1,21 @@
-@import '../../variables';
+@import "../../variables";
 .form-field {
     display: flex;
     position: relative;
     flex-direction: column;
     width: 80%;
+    margin-bottom: 1rem;
+}
+.input-error-message {
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 8px;
+    color: $cyan;
+    text-align: left;
+    width: 100%;
+    position: absolute;
+    bottom: -20px;
+    padding: 2px;
 }
 .form-field__label {
     font-size: 13px;
@@ -17,12 +29,12 @@
 }
 .form-field__input {
     color: white;
-    padding: 17px 1px 0px 1px;
+    padding: 17px 1px 0px;
     font-size: 13px;
     border-bottom: solid 1px $blue;
-    &:focus+.form-field__label, 
-    &:not(:placeholder-shown)+.form-field__label  {
-        transform: translate(0px, -15px) scale(0.7); 
+    &:focus + .form-field__label,
+    &:not(:placeholder-shown) + .form-field__label {
+        transform: translate(0px, -15px) scale(0.7);
     }
     &::placeholder {
         color: transparent;
