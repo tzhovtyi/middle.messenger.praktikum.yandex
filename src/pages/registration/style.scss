@@ -2,8 +2,9 @@
 .registration {
     width: 100vw;
     height: 100vh;
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .registration-form {
     width: 25%;

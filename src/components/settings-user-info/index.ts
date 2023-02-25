@@ -38,6 +38,7 @@ class SettingsUserInfo extends Block {
 }
 //button methods are used in the settings
 export const submitUserInfoBtn = sumbitBtn;
+
 export function createSettingsUserInfo() {
     return new SettingsUserInfo('form', {
         userInfoFields:userInfoFields,
