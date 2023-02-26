@@ -10,7 +10,8 @@ import validator from '../../services/formvalidator';
 import authController from '../../services/controllers/auth-controller';
 import userController from '../../services/controllers/user-controller';
 import router from '../../services/routing/router';
-import { withAvatarURL } from '../../services/store/connect';
+import { IMG_URL } from '../../services/consts';
+import { withAvatarAndName } from '../../services/store/connect';
 
 const returnBtn = new Button('div', {
     label: '',
@@ -68,13 +69,13 @@ class SettingsPage extends Block {
         return this.compile(tpl);
     }
 }
-const SettingsPageConnected = withAvatarURL(SettingsPage);
+const SettingsPageConnected = withAvatarAndName(SettingsPage);
 
 const settings = new SettingsPageConnected('div', {
     userInfo: userInfo,
     settingsActions: settingsActions,
     returnBtn: returnBtn,
-    avatarURL: '',
+    IMG_URL: IMG_URL,
     events: {
         click: e => {
             if(e.target instanceof Element && e.target.id === 'avatar') {
@@ -89,7 +90,11 @@ const settings = new SettingsPageConnected('div', {
             if(valid) {
                 switch (form.id) {
                 case 'userInfoForm':
-                    userController.updateProfile(e);
+                    //don't get user info before the info is updated on server
+                    (async function() {
+                        await userController.updateProfile(e);
+                        await authController.getUser();
+                    })();
                     submitUserInfoBtn.hide();
                     settingsActions.show();
                     document.querySelectorAll('.settings__field__input').forEach(element => {

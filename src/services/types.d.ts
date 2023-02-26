@@ -109,6 +109,8 @@ export interface messageFromSocket {
     user_id: number
 }
 
+export type HTTPMethod = (url: string, options?: Options, timeout?: number) => Promise<XMLHttpRequest>
+
 export type Indexed<T = any> = {
     [key in string]: T;
 };

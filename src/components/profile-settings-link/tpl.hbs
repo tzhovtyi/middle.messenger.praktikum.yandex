@@ -9,6 +9,8 @@
     </g>
 </svg>
 <div class="chat__profile-avatar-container">
-    <img src={{avatarURL}}>
+    {{#if avatarURL}}
+    <img src="{{IMG_URL}}/{{avatarURL}}">
+    {{/if}}
 </div>
 <span>Профиль</span>

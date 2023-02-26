@@ -1,21 +1,22 @@
 import HTTPTransport from '../htttp-transport';
 import { ChangeUsersInChatData, ChatIdData } from '../types';
+import { BASE_URL } from '../consts';
 
 class ChatsAPI {
-    private _baseURL: string;
+    private _chatsURL: string;
     private _chatsUsersURL: string;
     private _tokenURL: string;
     private _avatarURL: string;
 
     constructor() {
-        this._baseURL = 'https://ya-praktikum.tech/api/v2/chats';
-        this._chatsUsersURL = `${this._baseURL}/users`;
-        this._tokenURL = `${this._baseURL}/token`;
-        this._avatarURL = `${this._baseURL}/avatar`;
+        this._chatsURL = `${BASE_URL}/chats`;
+        this._chatsUsersURL = `${BASE_URL}/chats/users`;
+        this._tokenURL = `${BASE_URL}/chats/token`;
+        this._avatarURL = `${BASE_URL}/chats/avatar`;
     }
 
     createChat(data: {title: string}) {
-        return new HTTPTransport().post(this._baseURL, {
+        return new HTTPTransport().post(this._chatsURL, {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
@@ -25,7 +26,7 @@ class ChatsAPI {
     }
 
     getChats() {
-        return new HTTPTransport().get(this._baseURL, {
+        return new HTTPTransport().get(this._chatsURL, {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
@@ -54,7 +55,7 @@ class ChatsAPI {
     }
 
     deleteChat(data: ChatIdData) {
-        return new HTTPTransport().delete(this._baseURL, {
+        return new HTTPTransport().delete(this._chatsURL, {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',
@@ -66,7 +67,7 @@ class ChatsAPI {
 
 
     getChatUsers(chatId: string) {
-        return new HTTPTransport().get(`${this._baseURL}/${chatId}/users`, {
+        return new HTTPTransport().get(`${this._chatsURL}/${chatId}/users`, {
             headers: {
                 Accept: 'application/json',
                 'Content-Type': 'application/json',

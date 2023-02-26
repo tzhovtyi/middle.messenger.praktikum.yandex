@@ -1,5 +1,5 @@
 import queryStringify from '../utils/query-string';
-import { Options } from './types';
+import { HTTPMethod } from './types';
 
 const enum METHODS {
     GET = 'GET',
@@ -10,7 +10,7 @@ const enum METHODS {
 
 export default class HTTPTransport {
 
-    public get = (url:string, options: Options = {}) => {
+    public get:HTTPMethod = (url, options = {}) => {
         const { data } = options;
         const query = data ? url + queryStringify(data) : url;
         return this._request(
@@ -20,7 +20,7 @@ export default class HTTPTransport {
         );
     };
 
-    public put = (url:string, options: Options = {}) => {
+    public put:HTTPMethod = (url, options = {}) => {
         return this._request(
             url,
             {...options, method: METHODS.PUT},
@@ -28,7 +28,7 @@ export default class HTTPTransport {
         );
     };
 
-    public post = (url:string, options: Options = {}) => {
+    public post:HTTPMethod = (url, options = {}) => {
         return this._request(
             url,
             {...options, method: METHODS.POST},
@@ -36,7 +36,7 @@ export default class HTTPTransport {
         );
     };
 
-    public delete = (url:string, options: Options = {}) => {
+    public delete:HTTPMethod = (url, options = {}) => {
         return this._request(
             url,
             {...options, method: METHODS.DELETE},
@@ -44,11 +44,11 @@ export default class HTTPTransport {
         );
     };
 
-    private _request = (
-        url: string,
-        options: Options = {method: METHODS.GET},
+    private _request:HTTPMethod = (
+        url,
+        options = {method: METHODS.GET},
         timeout = 5000
-    ): Promise<XMLHttpRequest> => {
+    ) => {
 
         const {headers, method, data} = options;
         return new Promise((resolve, reject) => {

@@ -25,9 +25,14 @@ class AuthController {
                 errorDiv.textContent = 'Неверный логин или пароль';
             }
             //prevents the error when the user info is lost (clear localStorage and page re-load)
-            if(JSON.parse(e.response).reason === 'User already in system') {
-                await this.getUser();
-                router.go('/messenger');
+            try {
+                if(JSON.parse(e.response).reason === 'User already in system') {
+                    await this.getUser();
+                    await chatsController.getChats();
+                    router.go('/messenger');
+                }
+            } catch(e) {
+                console.log(e);
             }
         }
     }
@@ -40,12 +45,15 @@ class AuthController {
             router.go('/messenger');
         } catch (e) {
             if (e.status === 409) {
-                const reason = JSON.parse(e.response).reason.split(' ')[0].toLowerCase();
-                const errorDiv = document.querySelector(`div.form-field #error-${reason}`);
-                if (!errorDiv) return;
-                errorDiv.textContent = `Пользователь с таким ${reason} уже существует`;
+                try {
+                    const reason = JSON.parse(e.response).reason.split(' ')[0].toLowerCase();
+                    const errorDiv = document.querySelector(`div.form-field #error-${reason}`);
+                    if (!errorDiv) return;
+                    errorDiv.textContent = `Пользователь с таким ${reason} уже существует`;
+                } catch(e) {
+                    console.log(e);
+                }
             }
-
         }
     }
 
