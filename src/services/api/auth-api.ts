@@ -1,20 +1,19 @@
 import HTTPTransport from '../htttp-transport';
 import { SignInData, SignUpData } from '../types';
+import { BASE_URL } from '../consts';
 
 
 class AuthAPI {
-    private _baseUrl: string;
     private _signUpUrl: string;
     private _signInUrl: string;
     private _logOutUrl: string;
     private _userUrl: string;
 
     constructor() {
-        this._baseUrl = 'https://ya-praktikum.tech/api/v2';
-        this._userUrl = `${this._baseUrl}/auth/user`;
-        this._signUpUrl = `${this._baseUrl}/auth/signup`;
-        this._signInUrl = `${this._baseUrl}/auth/signin`;
-        this._logOutUrl = `${this._baseUrl}/auth/logout`;
+        this._userUrl = `${BASE_URL}/auth/user`;
+        this._signUpUrl = `${BASE_URL}/auth/signup`;
+        this._signInUrl = `${BASE_URL}/auth/signin`;
+        this._logOutUrl = `${BASE_URL}/auth/logout`;
     }
 
     signUp(data: SignUpData) {

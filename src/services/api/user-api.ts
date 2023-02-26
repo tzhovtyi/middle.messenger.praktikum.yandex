@@ -1,19 +1,18 @@
 import { ProfileInfoData, ChangePasswordData, SearchUserData } from './../types.d';
 import HTTPTransport from '../htttp-transport';
+import { BASE_URL } from '../consts';
 
 class UserAPI {
-    private _baseURL: string;
     private _passwordURL: string;
     private _profileURL: string;
     private _profileAvatarURL: string;
     private _searchURL: string;
 
     constructor() {
-        this._baseURL = 'https://ya-praktikum.tech/api/v2/user';
-        this._passwordURL = `${this._baseURL}/password`;
-        this._profileURL = `${this._baseURL}/profile`;
-        this._profileAvatarURL = `${this._baseURL}/profile/avatar`;
-        this._searchURL = `${this._baseURL}/search`;
+        this._passwordURL = `${BASE_URL}/user/password`;
+        this._profileURL = `${BASE_URL}/user/profile`;
+        this._profileAvatarURL = `${BASE_URL}/user/profile/avatar`;
+        this._searchURL = `${BASE_URL}/user/search`;
     }
 
     changeProfileInfo(data: ProfileInfoData) {

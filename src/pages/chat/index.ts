@@ -18,6 +18,7 @@ import router from '../../services/routing/router';
 import userController from '../../services/controllers/user-controller';
 import messagesController from '../../services/controllers/messages-controller';
 import MessagesLent from '../../components/messages-lent';
+import { IMG_URL } from '../../services/consts';
 
 function closeMenu(menu: Block) {
     menu.hide();
@@ -28,6 +29,7 @@ function closeMenu(menu: Block) {
 }
 
 const profileSettings = new ProfileSettingsLink('div', {
+    IMG_URL: IMG_URL,
     events: {
         click: ()=> {
             router.go('/settings');
@@ -157,6 +159,7 @@ newChatMenu.hide();
 
 const dialogues = new SidebarDialogues('div', {
     chats: [],
+    IMG_URL: IMG_URL,
     events: {
         click: e=> {
             const target = e.target as HTMLElement;
@@ -175,9 +178,6 @@ const messages = new MessagesLent('div', {
 class Chat extends Block {
     constructor(tag: string, props: BlockPropsAndChildren) {
         super(tag, props, 'chat');
-        if (window.location.pathname === '/chat') {
-            chatsController.getChats();
-        }
     }
     render() {
         return this.compile(tpl);
@@ -197,6 +197,7 @@ export default function createChatPage() {
         userAddMenu: userAddMenu,
         userRemoveMenu: userRemoveMenu,
         currentChat: null,
+        IMG_URL: IMG_URL,
         events: {
             click: e => {
                 if ((e.target as HTMLButtonElement).name !== 'send-message') return;

@@ -24,7 +24,6 @@ class ChatsController {
 
     async getChats() {
         try {
-
             const res = await this._api.getChats();
             const chatsData = JSON.parse(res.response);
             store.setState('chats', parseChats(chatsData));
@@ -101,11 +100,16 @@ class ChatsController {
         store.setState('currentChat',
             newChat
         );
-        const res = await this._api.getChatToken(chatId);
-        const data = JSON.parse(res.response);
-        const token = data.token;
-        const userId = store.getState().user.id;
-        messagesController.openSocketConnection({userId, chatId, token});
+        try {
+            const res = await this._api.getChatToken(chatId);
+            const data = JSON.parse(res.response);
+            const token = data.token;
+            const userId = store.getState().user.id;
+            messagesController.openSocketConnection({userId, chatId, token});
+        }
+        catch(e) {
+            console.log(e);
+        }
     }
 
     async changeChatAvatar(data: FormData) {

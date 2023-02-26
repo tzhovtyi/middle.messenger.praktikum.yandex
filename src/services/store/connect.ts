@@ -26,11 +26,25 @@ function connect(mapStateToProps: (state: Indexed, origProps: BlockPropsAndChild
 export const withAvatarURL = connect(state => {
     if (state.user && state.user.avatar) {
         return {
-            avatarURL: 'https://ya-praktikum.tech/api/v2/resources/' + state.user.avatar
+            avatarURL: state.user.avatar
         };
     } else {
         return {
             avatarURL: ''
+        };
+    }
+});
+
+export const withAvatarAndName = connect(state => {
+    if (state.user) {
+        return {
+            avatarURL: state.user.avatar,
+            name: state.user.first_name + ' ' + state.user.second_name
+        };
+    } else {
+        return {
+            avatarURL: '',
+            name: ''
         };
     }
 });

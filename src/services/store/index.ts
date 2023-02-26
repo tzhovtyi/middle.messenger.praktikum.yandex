@@ -14,7 +14,11 @@ class Store extends EventBus {
     constructor() {
         super();
         const savedState = localStorage.getItem(Store.STORE_NAME);
-        this._state = savedState ? (JSON.parse(savedState) ?? {}) : {};
+        try {
+            this._state = savedState ? (JSON.parse(savedState) ?? {}) : {};
+        } catch(e) {
+            console.log(e);
+        }
         this.on(
             Store.EVENT_UPDATE,
             () => { localStorage.setItem(Store.STORE_NAME, JSON.stringify(this._state));}
@@ -25,9 +29,6 @@ class Store extends EventBus {
         return this._state;
     }
     public setState(path: string, value: unknown) {
-        if(path === 'currentChat') {
-            // console.log(isEqual(this.getState().currentChat, value));
-        }
         set(this._state, path, value);
         this.emit(Store.EVENT_UPDATE);
     }

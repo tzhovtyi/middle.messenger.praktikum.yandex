@@ -2,9 +2,11 @@
     {{{returnBtn}}}
 </div>
 <div id="avatar" name="avatar" class="settings__avatar">
-    <img src={{avatarURL}}>
+    {{#if avatarURL}}
+    <img src='{{IMG_URL}}/{{avatarURL}}'>
+    {{/if}}
 </div>
-<h4 class="settings__user-name">Иван</h4>
+<h4 class="settings__user-name">{{name}}</h4>
 <div class="settings__user-info-container">
     {{{userInfo}}}
 </div>
