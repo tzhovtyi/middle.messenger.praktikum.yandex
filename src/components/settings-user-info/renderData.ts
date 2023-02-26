@@ -1,33 +1,32 @@
-import { user } from '../../mockData';
 export const renderData = [
     {
         id: 'first_name',
         label: 'Имя',
-        value: user.first_name
+        value: ''
     },
     {
         id: 'second_name',
         label: 'Фамилия',
-        value: user.second_name
+        value: ''
     },
     {
         id: 'display_name',
         label: 'Имя в чате',
-        value: user.display_name
+        value: ''
     },
     {
         id: 'login',
         label: 'Логин',
-        value: user.login
+        value: ''
     },
     {
         id: 'email',
         label: 'Почта',
-        value: user.email
+        value: ''
     },
     {
         id: 'phone',
         label: 'Телефон',
-        value: user.phone
+        value: ''
     }
 ];

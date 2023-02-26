@@ -5,38 +5,16 @@
     display: flex;
 }
 .chat-sidebar {
-    width: 22%;
-    height: 100%;
+    min-width: 22%;
+    max-width: 22%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     border-right: solid 1px white;
-    padding: 10px 5px 0px;
     background: #282833;
-}
-.chat-sidebar__profile-link {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 14px;
-    position: relative;
-    margin-bottom: 1rem;
-    padding-left: 17px;
-    &::before {
-        content: "";
-        width: 20px;
-        height: 20px;
-        background-image: url("/static/expand-arrow.svg");
-        background-position: 0% 0%;
-        background-repeat: no-repeat;
-        background-size: 50% 50%;
-        position: absolute;
-        top: 0;
-        left: 5;
-    }
 }
 .chat-sidebar__message-search {
     position: relative;
-    margin-bottom: 1.5rem;
 }
 .chat-sidebar__message-search-input {
     background: $blue-gray;
@@ -63,8 +41,9 @@
     padding: 0 10px;
 }
 .chat-lent__head {
+    position: relative;
     width: 100%;
-    height: 3rem;
+    height: 4rem;
     border-bottom: solid white 1px;
     display: flex;
     * {
@@ -73,13 +52,25 @@
     }
 }
 .chat-lent__head__avatar {
-    min-height: 30px;
-    min-width: 30px;
-    background: white;
-    border-radius: 20px;
+    min-height: 55px;
+    min-width: 55px;
+    height: 55px;
+    width: 55px;
+    background: $gray;
+    border-radius: 40px;
+    overflow: hidden;
+    img {
+        height: 100%;
+        width: auto;
+        object-fit: cover;
+        object-position: center;
+    }
 }
 .chat-lent__head__name {
     margin-left: 10px;
+}
+.chat-lent__head__settings-btn_wrap {
+    margin-left: auto;
 }
 .chat-lent__head__settings-btn {
     margin-left: auto;
@@ -137,7 +128,13 @@
     background-repeat: no-repeat;
 }
 .chat-lent__messages-input-container__attach-btn {
-    background-image: url("/static/attach.svg");
+    background: none;
     height: 32px;
     width: 32px;
+}
+.nochat-placeholder {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
 }

@@ -21,13 +21,18 @@
 ✔️ Styles written in SCSS  
 ✔️ Compiled with Parcel  
 ✔️ Deployed on Netlify  
-✔️ All form validations performed by one class
+✔️ All form validations performed by one class  
+✔️ Vanilla router implementation  
+✔️ API: auth, profile info changing, creating/deleting chats, adding/removing chat members,  
+avatar upload for user and chats  
+✔️ WebSocket for real-time messages  
+✔️ XSS- and DOS- protected
 
 #### Pages links:
 
 [/](https://practicum-chat-app.netlify.app) - Login  
-[/#registration](https://practicum-chat-app.netlify.app/#registration) - Registration  
-[/#chat](https://practicum-chat-app.netlify.app/#registration) - Chat  
-[/#settings](https://practicum-chat-app.netlify.app/#settings) - Settings  
-[/#404](https://practicum-chat-app.netlify.app/#404) - 404 error  
-[/#500](https://practicum-chat-app.netlify.app/#500) - 5\*\* error
+[/sign-up](https://practicum-chat-app.netlify.app/sign-up) - Registration  
+[/messenger](https://practicum-chat-app.netlify.app/messenger) - Chat  
+[/settings](https://practicum-chat-app.netlify.app/settings) - Settings  
+[/404](https://practicum-chat-app.netlify.app/404) - 404 error  
+[/500](https://practicum-chat-app.netlify.app/500) - 5\*\* error

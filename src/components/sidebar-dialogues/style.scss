@@ -1,4 +1,14 @@
 @import "../../variables";
+.dialogues-container {
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    display: flex;
+    flex-direction: column;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
 .sidebar-dialogue {
     width: 100%;
     padding: 5px 0px;
@@ -15,14 +25,25 @@
     }
 }
 .sidebar-dialogue__avatar {
+    pointer-events: none;
+    height: 40px;
+    width: 40px;
     min-height: 40px;
     min-width: 40px;
-    background: white;
+    background: $gray;
     border-radius: 20px;
-    margin-top: auto;
-    margin-bottom: auto;
+    margin: auto 0 auto 10px;
+    overflow: hidden;
+    img {
+        height: 100%;
+        width: auto;
+        z-index: 0;
+        object-fit: cover;
+        object-position: center;
+    }
 }
 .sidebar-dialogue__message {
+    pointer-events: none;
     height: 100%;
     width: calc(80% - 40px);
     display: flex;
@@ -31,11 +52,13 @@
     gap: 5px;
 }
 .sidebar-dialogue__message__sender {
+    pointer-events: none;
     font-weight: 600;
     font-size: 13px;
     line-height: 13px;
 }
 .sidebar-dialogue__message__content {
+    pointer-events: none;
     height: 60px;
     font-weight: 500;
     font-size: 12px;
@@ -48,9 +71,11 @@
     -webkit-box-orient: vertical;
 }
 .sidebar-dialogue__info {
+    pointer-events: none;
     position: absolute;
 }
 .sidebar-dialogue__timestamp {
+    pointer-events: none;
     top: 5px;
     right: 5px;
     font-weight: 500;
@@ -60,6 +85,7 @@
     color: $gray;
 }
 .sidebar-dialogue__unread {
+    pointer-events: none;
     bottom: 5px;
     right: 5px;
     background: $lighter;

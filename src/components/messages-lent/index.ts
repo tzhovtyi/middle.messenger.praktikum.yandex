@@ -2,13 +2,15 @@ import tpl from 'bundle-text:./tpl.hbs';
 import './style.scss';
 import Block from '../../services/block';
 import { BlockPropsAndChildren } from '../../services/types';
+import { withMessages } from '../../services/store/connect';
 
-export default class MessageTemplate extends Block {
+class MessagesLent extends Block {
     constructor(tag = 'div', propsAndChildren:BlockPropsAndChildren = {}) {
-        const align = propsAndChildren.fromViewer? 'message message_right' : 'message';
-        super(tag, propsAndChildren, align);
+        super(tag, propsAndChildren, 'chat-lent__messages-container');
     }
     render() {
         return this.compile(tpl);
     }
 }
+
+export default withMessages(MessagesLent);
