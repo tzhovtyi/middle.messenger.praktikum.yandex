@@ -1,4 +1,4 @@
-{{#each chats}}
+const tpl = `{{#each chats}}
 <div class="sidebar-dialogue" data-chatid="{{id}}" data-chattitle="{{title}}" data-chatavatar="{{avatar}}">
     <div class="sidebar-dialogue__avatar">
         {{#if avatar}}
@@ -21,4 +21,5 @@
     <span class="sidebar-dialogue__info sidebar-dialogue__unread">{{unread_count}}</span>
     {{/if}}
 </div>
-{{/each}}
+{{/each}}`;
+export default tpl;

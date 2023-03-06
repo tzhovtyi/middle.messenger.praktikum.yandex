@@ -1,5 +1,5 @@
 import Block from '../../services/block';
-import tpl from 'bundle-text:./tpl.hbs';
+import tpl from './tpl';
 import './style.scss';
 import router from '../../services/routing/router';
 import Button from '../../components/button';

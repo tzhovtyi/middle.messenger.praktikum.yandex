@@ -1,4 +1,4 @@
-<div class="error">
+const tpl = `<div class="error">
     <h1>{{errorNumber}}</h1>
     <h2>{{errorText}}</h2>
     {{{returnBtn}}}
@@ -12,4 +12,5 @@
     <a href="/#settings">Настройки</a>
     <a href="/#404">404</a>
     <a href="/#500">5**</a>
-</nav>
+</nav>`;
+export default tpl;

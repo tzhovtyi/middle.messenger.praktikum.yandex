@@ -1,4 +1,4 @@
-<div class="chat-sidebar">
+const tpl = `<div class="chat-sidebar">
     {{{profileSettings}}}
     {{{dialogues}}}
     {{{newChatMenu}}}
@@ -35,4 +35,5 @@
 <div class="nochat-placeholder">
     <h5>Выберите чат из списка или создайте новый</h5>
 </div>
-{{/unless}}
+{{/unless}}`;
+export default tpl;

@@ -1,4 +1,4 @@
-import tpl from 'bundle-text:./tpl.hbs';
+import tpl from './tpl';
 import Block from '../../services/block';
 import { BlockPropsAndChildren } from '../../services/types';
 import Button from '../button';
