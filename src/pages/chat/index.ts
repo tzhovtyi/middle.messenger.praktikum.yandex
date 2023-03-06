@@ -1,5 +1,5 @@
 import { BlockPropsAndChildren } from './../../services/types.d';
-import tpl from 'bundle-text:./tpl.hbs';
+import tpl from './tpl';
 import './style.scss';
 import Block from '../../services/block';
 import Button from '../../components/button';

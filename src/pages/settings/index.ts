@@ -1,4 +1,4 @@
-import tpl from 'bundle-text:./tpl.hbs';
+import tpl from './tpl';
 import './style.scss';
 import {createSettingsUserInfo, submitUserInfoBtn} from '../../components/settings-user-info/';
 import SettingsActions from '../../components/settings-actions/';

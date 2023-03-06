@@ -1,4 +1,4 @@
-<div class="settings-sidebar">
+const tpl = `<div class="settings-sidebar">
     {{{returnBtn}}}
 </div>
 <div id="avatar" name="avatar" class="settings__avatar">
@@ -21,4 +21,5 @@
             Выбрать файл на компьютере
         </label>
     </div>
-</div>
+</div>`;
+export default tpl;

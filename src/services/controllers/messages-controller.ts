@@ -117,7 +117,7 @@ class MessagesController {
     }
 
     setPing() {
-        this._pingIntervalId = setInterval(()=> {
+        this._pingIntervalId = window.setInterval(()=> {
             this._ping();
         }, PING_DELAY);
     }

@@ -1,4 +1,4 @@
-import tpl from 'bundle-text:./tpl.hbs';
+import tpl from './tpl';
 import './style.scss';
 import SettingsField from '../settings_field';
 import Button from '../button';

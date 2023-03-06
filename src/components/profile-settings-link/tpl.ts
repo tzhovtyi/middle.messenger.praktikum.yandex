@@ -1,4 +1,4 @@
-<svg fill="#555555" height="15px" width="15px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+const tpl = `<svg fill="#555555" height="15px" width="15px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
     xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512.004 512.004" xml:space="preserve">
     <g>
         <g>
@@ -13,4 +13,5 @@
     <img src="{{IMG_URL}}/{{avatarURL}}">
     {{/if}}
 </div>
-<span>Профиль</span>
+<span>Профиль</span>`;
+export default tpl;

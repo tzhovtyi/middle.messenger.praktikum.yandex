@@ -5,8 +5,8 @@ import createSettingsPage from './pages/settings/';
 import createChatPage from './pages/chat/';
 import { createError404, createError500 } from './pages/error';
 import router from './services/routing/router';
-import store from './services/store';
-
+import store from './services/store/';
+const num: number = '12';
 router
     .use('/', createLogInPage)
     .use('/sign-up', createRegistrationPage)
