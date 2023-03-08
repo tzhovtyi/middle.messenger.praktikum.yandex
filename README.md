@@ -2,15 +2,26 @@
 
 ### Web chat messenger
 
-| Command         | Description                                            |
-| --------------- | ------------------------------------------------------ |
-| `npm run dev`   | Starts Parcel developer server at port 3000            |
-| `npm run build` | Builds the project                                     |
-| `npm run start` | Builds the project and starts Node server at port 3000 |
+| Command            | Description                                            |
+| ------------------ | ------------------------------------------------------ |
+| `npm run dev`      | Starts Webpack developer server at port 3000           |
+| `npm run build`    | Builds the project into dist/ folder                   |
+| `npm run start`    | Builds the project and starts Node server at port 3000 |
+| `npm run test`     | Runs unit test with Jest                               |
+| `npm run tsc`      | Checks for ts error in all files                       |
+| `npm run lint`     | Runs ESlint and fixes errors                           |
+| `npm run stylelint`| Runs stylelint                                         |
 
 [Deployed on Netlify](https://practicum-chat-app.netlify.app/)
+[Deployed on Render](https://yandex-praktikum-messenger-ejza.onrender.com)
 
 [Figma design templates](https://www.figma.com/file/dctKPtCeSqShhDfyEVkJZX/Yandex?node-id=0%3A1&t=uAIvx9AX66zrlCWI-1)
+
+### Running with Docker (port 3000)
+
+    docker build -t chat .
+    docker run -p 3000:3000 -d chat
+
 
 #### Technical features:
 
@@ -19,20 +30,14 @@
 ✔️ Typescript  
 ✔️ Only one frontend library (Handlebars)  
 ✔️ Styles written in SCSS  
-✔️ Compiled with Parcel  
+✔️ Built with Webpack    
 ✔️ Deployed on Netlify  
 ✔️ All form validations performed by one class  
 ✔️ Vanilla router implementation  
 ✔️ API: auth, profile info changing, creating/deleting chats, adding/removing chat members,  
 avatar upload for user and chats  
 ✔️ WebSocket for real-time messages  
-✔️ XSS- and DOS- protected
-
-#### Pages links:
-
-[/](https://practicum-chat-app.netlify.app) - Login  
-[/sign-up](https://practicum-chat-app.netlify.app/sign-up) - Registration  
-[/messenger](https://practicum-chat-app.netlify.app/messenger) - Chat  
-[/settings](https://practicum-chat-app.netlify.app/settings) - Settings  
-[/404](https://practicum-chat-app.netlify.app/404) - 404 error  
-[/500](https://practicum-chat-app.netlify.app/500) - 5\*\* error
+✔️ XSS- and DOS- protected  
+✔️ Tested with Jest    
+✔️ Uses Docker container  
+✔️ Pre-commit checks with Husky  

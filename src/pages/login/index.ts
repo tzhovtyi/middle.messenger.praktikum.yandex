@@ -42,7 +42,7 @@ const inputFields = renderData.map(data => {
 
 class LogInPage extends Block {
     constructor(tag = 'div', propsAndChildren: BlockPropsAndChildren = {}) {
-        super(tag, propsAndChildren, 'registration');
+        super(tag, propsAndChildren, 'login');
     }
     render() {
         return this.compile(tpl);
