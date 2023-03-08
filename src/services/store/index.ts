@@ -13,11 +13,13 @@ class Store extends EventBus {
 
     constructor() {
         super();
-        const savedState = localStorage.getItem(Store.STORE_NAME);
-        try {
-            this._state = savedState ? (JSON.parse(savedState) ?? {}) : {};
-        } catch(e) {
-            console.log(e);
+        if (localStorage) {
+            const savedState = localStorage.getItem(Store.STORE_NAME);
+            try {
+                this._state = savedState ? (JSON.parse(savedState) ?? {}) : {};
+            } catch(e) {
+                console.log(e);
+            }
         }
         this.on(
             Store.EVENT_UPDATE,

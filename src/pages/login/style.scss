@@ -1,19 +1,8 @@
 @import "../../variables";
-.for-reviewer {
-    position: absolute;
-    height: 130px;
-    width: 100px;
-    bottom: 20px;
-    left: 0;
-    background: $bright-livid;
-    border-radius: 10px;
+.login {
+    width: 100vw;
+    height: 100vh;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    justify-content: space-around;
-    a {
-        font-size: 12px;
-        color: $cyan;
-        cursor: pointer;
-    }
 }
