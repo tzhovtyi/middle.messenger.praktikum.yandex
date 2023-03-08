@@ -1,4 +1,4 @@
-import tpl from 'bundle-text:./tpl.hbs';
+import tpl from './tpl';
 import './style.scss';
 import SettingsField from '../settings_field';
 import Button from '../button';
@@ -38,6 +38,7 @@ class SettingsUserInfo extends Block {
 }
 //button methods are used in the settings
 export const submitUserInfoBtn = sumbitBtn;
+
 export function createSettingsUserInfo() {
     return new SettingsUserInfo('form', {
         userInfoFields:userInfoFields,

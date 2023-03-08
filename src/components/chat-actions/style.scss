@@ -1,0 +1,31 @@
+@import "../../variables";
+.chat-actions-menu {
+    height: 120px;
+    width: 170px;
+    border-radius: 7px;
+    background: $livid;
+    position: absolute;
+    bottom: -125px;
+    right: 5px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    justify-content: flex-start;
+    * {
+        color: white;
+        flex: 1;
+        &:hover {
+            background: $lighter;
+        }
+    }
+    label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+    }
+    input {
+        display: none;
+    }
+}

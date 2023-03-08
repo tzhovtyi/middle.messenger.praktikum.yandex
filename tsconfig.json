@@ -7,6 +7,12 @@
         "noUnusedParameters": true,
         "sourceMap": true,
         "strictNullChecks": true,
-        "allowSyntheticDefaultImports": true
-    }
+        "allowSyntheticDefaultImports": true,
+        "baseUrl": "./src/",
+        "skipLibCheck": true
+    },
+    "exclude": [
+        "src/**/*.test.ts",
+        "node_modules"
+    ]
 }

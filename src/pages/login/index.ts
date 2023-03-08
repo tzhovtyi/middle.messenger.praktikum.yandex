@@ -1,4 +1,4 @@
-import tpl from 'bundle-text:./tpl.hbs';
+import tpl from './tpl';
 import InputField from '../../components/input_field';
 import Button from '../../components/button/';
 import Block from '../../services/block';
@@ -6,10 +6,23 @@ import validator from '../../services/formvalidator';
 import './style.scss';
 import { BlockPropsAndChildren } from '../../services/types';
 import { renderData } from './renderData';
+import router from '../../services/routing/router';
+import authController from '../../services/controllers/auth-controller';
 
 const logInBtn = new Button('div', {
     btnType: 'submit',
     label: 'Войти'
+});
+
+const returnBtn = new Button('div', {
+    label: 'Нет аккаунта?',
+    btnType: 'button',
+    btnClass: 'return-link',
+    events: {
+        click: ()=> {
+            router.go('/sign-up');
+        }
+    }
 });
 
 const inputFields = renderData.map(data => {
@@ -29,7 +42,7 @@ const inputFields = renderData.map(data => {
 
 class LogInPage extends Block {
     constructor(tag = 'div', propsAndChildren: BlockPropsAndChildren = {}) {
-        super(tag, propsAndChildren, 'registration');
+        super(tag, propsAndChildren, 'login');
     }
     render() {
         return this.compile(tpl);
@@ -40,10 +53,12 @@ export default function createLoginPage() {
     return new LogInPage('div', {
         logInBtn: logInBtn,
         inputFields:inputFields,
+        returnBtn: returnBtn,
         events: {
-            //validates by regex first, no need to send invalid fields to the server
             submit: e => {
-                validator.validateSubmit(e);
+                if (validator.validateSubmit(e)) {
+                    authController.signIn(e);
+                }
             }
         }
     });
